@@ -1,29 +1,10 @@
-// ReadFile.java
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
 
-
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-
-public class ReadFiles
-{
-    public String[] readLines(String filename) throws IOException
-    {
-        FileReader fileReader = new FileReader(filename);
-
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        List<String> lines = new ArrayList();
-        String line;
-
-        while ((line = bufferedReader.readLine()) != null)
-        {
-            lines.add(line);
-        }
-
-        bufferedReader.close();
-
-        return lines.toArray(new String[lines.size()]);
+public class ReadFiles {
+    public static String main(String file_name) {
+    File file = new File(file_name);
+    return String.valueOf(file);
     }
 }
