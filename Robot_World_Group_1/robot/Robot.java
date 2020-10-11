@@ -17,6 +17,8 @@ public class Robot
         row = 0;
         column = 0;
         direction = 0;
+        
+        // for test draw robot
         this.headUp();
         this.updatePoints();
     }
@@ -57,4 +59,94 @@ public class Robot
         rightPosX = (800/world.getMaxRow()) * (row +1); 
         rightPosY = (800/world.getMaxColumn() * (column +1));
     }
+
+    public void headDown() 
+    {
+
+    }
+
+    public void headLeft() 
+    {
+
+    }
+
+    public void headRight() 
+    {
+        
+    }
+
+    public void turnLeft() 
+    {
+        if (direction == 0) 
+        {
+            direction = 3;
+        }
+        else 
+        {
+            direction -= 1;
+        }
+    }
+
+    public void turnRight() 
+    {
+        if (direction == 3) 
+        {
+            direction = 0;
+        }
+        else 
+        {
+            direction += 1;
+        }
+    }
+
+    public void move() 
+    {
+        if (direction == 0 && !this.isAtTopEdge()) 
+        {
+            row -= 1;
+        }
+        else if (direction == 1 && !this.isAtRightEdge()) 
+        {
+            row += 1;
+        }
+        else if (direction == 2 && !this.isAtBottomEdge()) 
+        {
+            column += 1;
+        }
+        else if (direction == 3 && !this.isAtLeftEdge()) 
+        {
+            column -= 1;
+        }
+    }
+
+    public int getRow() 
+    {
+        return(row);
+    }
+
+    public int getColumn() 
+    {
+        return(column);
+    }
+
+    public boolean isAtTopEdge() 
+    {
+        return column <= 0;
+    }
+
+    public boolean isAtBottomEdge() 
+    {
+        return column >= -1;
+    }
+
+    public boolean isAtLeftEdge() 
+    {
+        return row <= 0;
+    }
+
+    public boolean isAtRightEdge() 
+    {
+        return row >= -1;
+    }
+    
 }
