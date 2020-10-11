@@ -1,3 +1,5 @@
+package robot;
+
 public class Robot {
     int direction; // 0:headup 1:headright 2:headdown 3:headleft
     int posX, posY;
