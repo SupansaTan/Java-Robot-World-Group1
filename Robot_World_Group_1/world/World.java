@@ -95,23 +95,4 @@ public class World
         return false;
     }
 
-    /*
-    public void paintComponent(Graphics G) {
-
-        for (int i = 0; i < (maxX); i = i + 1) {
-            for (int j = 0; j < (maxY); j = j + 1) {
-                String[] block = mapread[j].split("-");
-                int mapBlock = Integer.parseInt(block[i]);
-
-                if (mapBlock == 1) {
-                    G.setColor(Color.WHITE);
-                    G.fillRect(i * X, j * Y, X, Y);
-                } else {
-                    G.setColor(Color.BLACK);
-                    G.fillRect(i * X, j * Y, X, Y);
-                }
-            }
-        }
-    }
-    */
 }
