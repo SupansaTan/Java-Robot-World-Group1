@@ -1,6 +1,6 @@
 package target;
 
-public class Target 
+public class Target
 {
     private int row, column;
     private int[] xpoint = new int[8];

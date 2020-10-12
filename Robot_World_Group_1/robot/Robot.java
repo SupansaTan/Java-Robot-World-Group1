@@ -1,7 +1,8 @@
 package robot;
-import world.World;
 
-public class Robot
+import robotWorld.Robot_World;
+
+public class Robot extends Robot_World
 {
     private int direction; // 0:headup 1:headright 2:headdown 3:headleft
     private int row, column;
@@ -10,7 +11,6 @@ public class Robot
     private int rightPosX, rightPosY;
     private int[] xpoint = new int[3]; 
     private int[] ypoint = new int[3]; 
-    private World world = new World();
 
     public Robot()
     {

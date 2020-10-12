@@ -1,15 +1,20 @@
+package robotWorld;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 import world.World;
 import robot.Robot;
 import target.Target;
+import inputProcessor.InputProcessor;
 
 public class Robot_World
 {
-    private static World world;
-    private static Robot robot;
+    public static World world;
+    public static Robot robot;
     private static Target target;
+    private static InputProcessor inputProcessor;
     private static JFrame frame;
     private static JPanel mainPanel;
     private static JButton[] buttons; 
@@ -26,6 +31,7 @@ public class Robot_World
         world = new World();
         robot = new Robot();
         target = new Target(9,7);
+        inputProcessor = new InputProcessor();
 
         // use grid in panel for divide blocks
         mainPanel = new JPanel();
@@ -51,6 +57,21 @@ public class Robot_World
             buttons[i].setBorder(null);
             mainPanel.add(buttons[i]);
         }
+
+        // when pressed key
+        frame.addKeyListener(new KeyListener()
+        {
+            public void keyTyped(KeyEvent e) {            
+            }
+        
+            public void keyPressed(KeyEvent e) {
+            }
+
+            public void keyReleased(KeyEvent e)
+            {
+                inputProcessor.control(e.getKeyCode());
+            }
+        });
 
         // display the robot
         buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].add(new DrawPolygon(robot.getXpoints(), robot.getYpoints(), 3));
