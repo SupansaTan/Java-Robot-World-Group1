@@ -29,7 +29,7 @@ public class Robot_World
 
         // create object of class
         world = new World();
-        robot = new Robot();
+        robot = new Robot(1,1,1);
         target = new Target(9,7);
         inputProcessor = new InputProcessor();
 
@@ -69,7 +69,12 @@ public class Robot_World
 
             public void keyReleased(KeyEvent e)
             {
+                buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].remove(0);
+                buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].revalidate();
+                buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].repaint();
+
                 inputProcessor.control(e.getKeyCode());
+                buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].add(new DrawPolygon(robot.getXpoints(), robot.getYpoints(), 3));
             }
         });
 
@@ -78,7 +83,9 @@ public class Robot_World
         
         // display the target
         buttons[target.getRow() * world.getMaxRow() + target.getColumn()].add(new DrawPolygon(target.getXpoints(), target.getYpoints(), 8));
-
+        
+        frame.setFocusable(true);
+        frame.setFocusTraversalKeysEnabled(false);
         frame.setVisible(true);
     }
 }

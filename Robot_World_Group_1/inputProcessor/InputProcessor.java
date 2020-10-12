@@ -10,7 +10,6 @@ public class InputProcessor extends Robot_World
         if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W)
         {
             // arrow up or key 'w'
-            System.out.println(key);
             robot.move();
         }
         else if (key == KeyEvent.VK_LEFT| key == KeyEvent.VK_A)

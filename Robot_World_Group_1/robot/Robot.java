@@ -28,6 +28,7 @@ public class Robot extends Robot_World
         row = px;
         column = py;
         direction = di;
+        this.updatePoints();
     }
 
     public int[] getXpoints()
@@ -42,6 +43,23 @@ public class Robot extends Robot_World
 
     public void updatePoints()
     {
+        if (direction == 0)
+        {
+            this.headUp();
+        }
+        else if (direction == 1)
+        {
+            this.headRight();
+        }
+        else if (direction == 2)
+        {
+            this.headDown();
+        }
+        else if (direction == 3)
+        {
+            this.headLeft();
+        }
+        
         xpoint[0] = headPosX;
         xpoint[1] = leftPosX;
         xpoint[2] = rightPosX;
@@ -52,45 +70,42 @@ public class Robot extends Robot_World
 
     public void headUp() 
     {
-        headPosX = (800/world.getMaxRow() * row) + (800/world.getMaxRow()/2);
-        headPosY = (800/world.getMaxColumn() * column);
-        leftPosX = (800/world.getMaxRow() * row);
-        leftPosY = (800/world.getMaxColumn() * (column + 1));
-        rightPosX = (800/world.getMaxRow() * (row + 1)); 
-        rightPosY = (800/world.getMaxColumn() * (column + 1));
+        headPosX = (800/world.getMaxRow()/2);
+        headPosY = 0;
+        leftPosX = 0;
+        leftPosY = (800/world.getMaxColumn());
+        rightPosX = (800/world.getMaxRow()); 
+        rightPosY = (800/world.getMaxColumn());
     }
 
     public void headDown() 
     {
-        headPosX = (800/world.getMaxRow() * row) + (800/world.getMaxRow()/2);
-        headPosY = (800/world.getMaxColumn() * (column + 1));
-        leftPosX = (800/world.getMaxRow() * row);
-        leftPosY = (800/world.getMaxColumn() * column);
-        rightPosX = (800/world.getMaxRow() * (row + 1)); 
-        rightPosY = (800/world.getMaxColumn() * column);
-
+        headPosX = (800/world.getMaxRow()/2);
+        headPosY = (800/world.getMaxColumn());
+        leftPosX = 0;
+        leftPosY = 0;
+        rightPosX = (800/world.getMaxRow()); 
+        rightPosY = 0;
     }
 
     public void headLeft() 
     {
-        headPosX = (800/world.getMaxRow() * (row + 1));
-        headPosY = (800/world.getMaxColumn() * (column + 1));
-        leftPosX = (800/world.getMaxRow() * row);
-        leftPosY = (800/world.getMaxColumn() * column) + (800/world.getMaxRow()/2);
-        rightPosX = (800/world.getMaxRow() * (row + 1)); 
-        rightPosY = (800/world.getMaxColumn() * (column + 1));
-
+        headPosX = 0;
+        headPosY = (800/world.getMaxColumn()/2);
+        leftPosX = (800/world.getMaxRow());
+        leftPosY = (800/world.getMaxColumn());
+        rightPosX = (800/world.getMaxRow()); 
+        rightPosY = 0;
     }
 
     public void headRight() 
     {
-        headPosX = (800/world.getMaxRow() * row);
-        headPosY = (800/world.getMaxColumn() * column);
-        leftPosX = (800/world.getMaxRow() * (row + 1));
-        leftPosY = (800/world.getMaxColumn() * column) + (800/world.getMaxRow()/2);
-        rightPosX = (800/world.getMaxRow() * row); 
-        rightPosY = (800/world.getMaxColumn() * (column +1));
-        
+        headPosX = (800/world.getMaxRow());
+        headPosY = (800/world.getMaxColumn()/2);
+        leftPosX = 0;
+        leftPosY = 0;
+        rightPosX = 0; 
+        rightPosY = (800/world.getMaxColumn());
     }
 
     public void turnLeft() 
@@ -121,50 +136,50 @@ public class Robot extends Robot_World
     {
         if (direction == 0 && !this.isAtTopEdge()) 
         {
-            row -= 1;
+            this.row -= 1;
         }
         else if (direction == 1 && !this.isAtRightEdge()) 
         {
-            row += 1;
+            this.column += 1;
         }
         else if (direction == 2 && !this.isAtBottomEdge()) 
         {
-            column += 1;
+            this.row += 1;
         }
         else if (direction == 3 && !this.isAtLeftEdge()) 
         {
-            column -= 1;
+            this.column -= 1;
         }
     }
 
     public int getRow() 
     {
-        return(row);
+        return row;
     }
 
     public int getColumn() 
     {
-        return(column);
+        return column;
     }
 
     public boolean isAtTopEdge() 
     {
-        return column <= 0;
+        return row <= 0;
     }
 
     public boolean isAtBottomEdge() 
     {
-        return column >= -1;
+        return row >= world.getMaxColumn()-1;
     }
 
     public boolean isAtLeftEdge() 
     {
-        return row <= 0;
+        return column <= 0;
     }
 
     public boolean isAtRightEdge() 
     {
-        return row >= -1;
+        return column >= world.getMaxRow()-1;
     }
     
 }
