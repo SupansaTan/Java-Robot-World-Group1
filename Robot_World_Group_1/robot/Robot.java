@@ -55,23 +55,41 @@ public class Robot
         headPosX = (800/world.getMaxRow() * row) + (800/world.getMaxRow()/2);
         headPosY = (800/world.getMaxColumn() * column);
         leftPosX = (800/world.getMaxRow() * row);
-        leftPosY = (800/world.getMaxColumn() * (column +1));
-        rightPosX = (800/world.getMaxRow()) * (row +1); 
-        rightPosY = (800/world.getMaxColumn() * (column +1));
+        leftPosY = (800/world.getMaxColumn() * (column + 1));
+        rightPosX = (800/world.getMaxRow() * (row + 1)); 
+        rightPosY = (800/world.getMaxColumn() * (column + 1));
     }
 
     public void headDown() 
     {
+        headPosX = (800/world.getMaxRow() * row) + (800/world.getMaxRow()/2);
+        headPosY = (800/world.getMaxColumn() * (column + 1));
+        leftPosX = (800/world.getMaxRow() * row);
+        leftPosY = (800/world.getMaxColumn() * column);
+        rightPosX = (800/world.getMaxRow() * (row + 1)); 
+        rightPosY = (800/world.getMaxColumn() * column);
 
     }
 
     public void headLeft() 
     {
+        headPosX = (800/world.getMaxRow() * (row + 1));
+        headPosY = (800/world.getMaxColumn() * (column + 1));
+        leftPosX = (800/world.getMaxRow() * row);
+        leftPosY = (800/world.getMaxColumn() * column) + (800/world.getMaxRow()/2);
+        rightPosX = (800/world.getMaxRow() * (row + 1)); 
+        rightPosY = (800/world.getMaxColumn() * (column + 1));
 
     }
 
     public void headRight() 
     {
+        headPosX = (800/world.getMaxRow() * row);
+        headPosY = (800/world.getMaxColumn() * column);
+        leftPosX = (800/world.getMaxRow() * (row + 1));
+        leftPosY = (800/world.getMaxColumn() * column) + (800/world.getMaxRow()/2);
+        rightPosX = (800/world.getMaxRow() * row); 
+        rightPosY = (800/world.getMaxColumn() * (column +1));
         
     }
 
