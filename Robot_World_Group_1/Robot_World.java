@@ -3,11 +3,13 @@ import java.awt.*;
 
 import world.World;
 import robot.Robot;
+import target.Target;
 
 public class Robot_World
 {
     private static World world;
     private static Robot robot;
+    private static Target target;
     private static JFrame frame;
     private static JPanel mainPanel;
     private static JButton[] buttons; 
@@ -23,6 +25,7 @@ public class Robot_World
         // create object of class
         world = new World();
         robot = new Robot();
+        target = new Target(9,7);
 
         // use grid in panel for divide blocks
         mainPanel = new JPanel();
@@ -49,18 +52,22 @@ public class Robot_World
             mainPanel.add(buttons[i]);
         }
 
-        buttons[0].add(new drawPolygon(robot.getXpoints(), robot.getYpoints(), 3));
+        // display the robot
+        buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].add(new DrawPolygon(robot.getXpoints(), robot.getYpoints(), 3));
+        
+        // display the target
+        buttons[target.getRow() * world.getMaxRow() + target.getColumn()].add(new DrawPolygon(target.getXpoints(), target.getYpoints(), 8));
 
         frame.setVisible(true);
     }
 }
 
-class drawPolygon extends JComponent 
+class DrawPolygon extends JComponent 
 {
     int[] xpoint, ypoint;
     int npoint;
 
-    drawPolygon(int[] x, int[] y, int n)
+    DrawPolygon(int[] x, int[] y, int n)
     {
         xpoint = x;
         ypoint = y;
@@ -70,7 +77,16 @@ class drawPolygon extends JComponent
     public void paint(Graphics g) 
     {
         super.paintComponents(g);
-        g.setColor(Color.BLUE);
+
+        if (npoint == 3)
+        {
+            g.setColor(Color.BLUE); // Robot
+        }
+        else
+        {
+            g.setColor(Color.RED); // Target
+        }
+
         g.fillPolygon(xpoint, ypoint, npoint);
     }
 
