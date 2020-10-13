@@ -136,19 +136,28 @@ public class Robot extends Robot_World
     {
         if (direction == 0 && !this.isAtTopEdge()) 
         {
-            this.row -= 1;
+            if(world.isBlackBlock( row-1, column )== false) {
+                this.row -= 1;
+            }
         }
         else if (direction == 1 && !this.isAtRightEdge()) 
         {
+            if(world.isBlackBlock( row, column+1 )== false)
+            {
             this.column += 1;
+            }
         }
         else if (direction == 2 && !this.isAtBottomEdge()) 
         {
-            this.row += 1;
+            if(world.isBlackBlock( row+1, column )== false) {
+                this.row += 1;
+            }
         }
         else if (direction == 3 && !this.isAtLeftEdge()) 
         {
-            this.column -= 1;
+            if(world.isBlackBlock( row, column-1 )== false) {
+                this.column -= 1;
+            }
         }
     }
 

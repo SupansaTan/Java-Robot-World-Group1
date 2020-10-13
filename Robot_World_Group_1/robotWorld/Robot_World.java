@@ -46,7 +46,7 @@ public class Robot_World
         for (int i=0; i<amountOfBtn; i++)
         {
             buttons[i] = new JButton();
-            if (world.isBlackBlock( i/world.getMaxRow(), i%world.getMaxColumn() ))
+            if (world.isBlackBlock( i/world.getMaxRow(), i%world.getMaxColumn() ) == true)
             {
                 buttons[i].setBackground(Color.BLACK);
             }
@@ -54,6 +54,7 @@ public class Robot_World
             {
                 buttons[i].setBackground(Color.WHITE);
             }
+            buttons[i].setOpaque(true);
             buttons[i].setBorder(null);
             mainPanel.add(buttons[i]);
         }
