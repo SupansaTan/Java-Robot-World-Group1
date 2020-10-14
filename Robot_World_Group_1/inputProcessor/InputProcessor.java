@@ -6,8 +6,6 @@ import target.Target;
 
 public class InputProcessor extends Robot_World
 {
-    private static Target target;
-
     public void control(int key)
     {
 
@@ -25,6 +23,10 @@ public class InputProcessor extends Robot_World
         {
             // arrow right or key 'd'
             robot.turnRight();
+        }
+        else if(key == KeyEvent.VK_S)
+        {
+            world.writeFile();
         }
 
         robot.updatePoints();

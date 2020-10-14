@@ -21,6 +21,7 @@ public class Robot_World
     private static JButton[] buttons;
     private static JLabel Status;
 
+
     public static void main(String[] args)
     {
         // create frame

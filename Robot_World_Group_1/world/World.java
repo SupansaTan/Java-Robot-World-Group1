@@ -4,10 +4,11 @@ import java.util.*;
 
 public class World
 {
-    private int rowMax;
-    private int columnMax;
+
+    private static int rowMax;
+    private static int columnMax;
     private Scanner reader; // read file
-    private HashMap<String, String> blackBlock = new HashMap<String, String>();
+    private static HashMap<String, String> blackBlock = new HashMap<String, String>();
     private int[] robotPos;
     private int[] targetPos;
 
@@ -93,6 +94,32 @@ public class World
             return true;
         }
         return false;
+    }
+    public int getNumBlack()
+    {
+        return blackBlock.size();
+    }
+    public static void writeFile(){
+        try {
+
+            FileWriter myWriter = new FileWriter("Maps.txt");
+            myWriter.write("Rows=" + Integer.toString(rowMax)+"\n");
+            myWriter.write("Columns="+ Integer.toString(columnMax)+"\n");
+            myWriter.write("Black Position:\n");
+
+
+            for (String key : blackBlock.keySet() ) {
+                myWriter.write("("+key+")\n");
+            }
+            myWriter.write("END");
+
+
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
 }
