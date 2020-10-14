@@ -1,9 +1,11 @@
 package robot;
 
 import robotWorld.Robot_World;
+import target.Target;
 
 public class Robot extends Robot_World
 {
+    private static Target target = new Target(9,7);
     private int direction; // 0:headup 1:headright 2:headdown 3:headleft
     private int row, column;
     private int headPosX, headPosY;
@@ -134,13 +136,17 @@ public class Robot extends Robot_World
 
     public void move() 
     {
-        if (direction == 0 && !this.isAtTopEdge()) 
+        {
+        if (target.getRow()== row && target.getColumn() == column){
+
+        }
+        else if (direction == 0 && !this.isAtTopEdge())
         {
             if(world.isBlackBlock( row-1, column )== false) {
                 this.row -= 1;
             }
         }
-        else if (direction == 1 && !this.isAtRightEdge()) 
+        else if (direction == 1 && !this.isAtRightEdge())
         {
             if(world.isBlackBlock( row, column+1 )== false)
             {
@@ -160,6 +166,7 @@ public class Robot extends Robot_World
             }
         }
     }
+}
 
     public int getRow() 
     {

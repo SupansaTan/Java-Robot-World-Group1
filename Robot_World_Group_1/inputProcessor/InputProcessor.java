@@ -2,11 +2,15 @@ package inputProcessor;
 
 import java.awt.event.KeyEvent;
 import robotWorld.Robot_World;
+import target.Target;
 
 public class InputProcessor extends Robot_World
 {
+    private static Target target;
+
     public void control(int key)
     {
+
         if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W)
         {
             // arrow up or key 'w'
@@ -22,6 +26,7 @@ public class InputProcessor extends Robot_World
             // arrow right or key 'd'
             robot.turnRight();
         }
+
         robot.updatePoints();
     }
 }
