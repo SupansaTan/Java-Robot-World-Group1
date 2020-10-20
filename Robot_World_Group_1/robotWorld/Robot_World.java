@@ -21,7 +21,13 @@ public class Robot_World
     private static JButton[] buttons;
     private static JLabel Status;
 
-
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset , Sikarin Kaewjutaniti
+    //
+    // Description: draw all elements in frame and add keyListener for update position
+    // 
+    /////////////////////////////////////////////////////
     public static void main(String[] args)
     {
         // create frame
@@ -30,6 +36,7 @@ public class Robot_World
         frame.setTitle("Robot World");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Status = new JLabel();
+
         // create object of class
         world = new World();
         robot = new Robot(1,1,1);
@@ -92,7 +99,6 @@ public class Robot_World
         });
 
         // display the robot
-
         buttons[robot.getRow() * world.getMaxRow() + robot.getColumn()].add(new DrawPolygon(robot.getXpoints(), robot.getYpoints(), 3));
         
         // display the target
@@ -104,6 +110,13 @@ public class Robot_World
     }
 }
 
+/////////////////////////////////////////////////////
+//
+// Programmer: Supansa Tantulset
+//
+// Description: for draw and paint polygon shape
+// 
+/////////////////////////////////////////////////////
 class DrawPolygon extends JComponent 
 {
     int[] xpoint, ypoint;

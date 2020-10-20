@@ -25,26 +25,61 @@ public class Target
         }
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get row
+    // 
+    /////////////////////////////////////////////////////
     public int getRow() 
     {
         return row;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get column
+    // 
+    /////////////////////////////////////////////////////
     public int getColumn() 
     {
         return column;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get position x all points
+    // 
+    /////////////////////////////////////////////////////
     public int[] getXpoints()
     {
         return xpoint;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get position y all points
+    // 
+    /////////////////////////////////////////////////////
     public int[] getYpoints()
     {
         return ypoint;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for add each point in array of xpoint and ypoint
+    // 
+    /////////////////////////////////////////////////////
     public void addPoints()
     {
         for (int i=0; i<8; i++){

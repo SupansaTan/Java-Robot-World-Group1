@@ -6,6 +6,13 @@ import target.Target;
 
 public class InputProcessor extends Robot_World
 {
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset, Sikarin Kaewjutaniti
+    //
+    // Description: for control when push key
+    // 
+    /////////////////////////////////////////////////////
     public void control(int key)
     {
 

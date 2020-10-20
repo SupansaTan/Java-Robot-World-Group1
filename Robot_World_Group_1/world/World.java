@@ -30,6 +30,13 @@ public class World
 
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for readfile .txt
+    // 
+    /////////////////////////////////////////////////////
     public void readFile(String fileName) 
     {
         File file = new File(fileName);
@@ -77,16 +84,37 @@ public class World
         }
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get max row
+    // 
+    /////////////////////////////////////////////////////
     public int getMaxRow()
     {
         return rowMax;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get max column
+    // 
+    /////////////////////////////////////////////////////
     public int getMaxColumn()
     {
         return columnMax;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for check that position is black block
+    // 
+    /////////////////////////////////////////////////////
     public boolean isBlackBlock(int row, int column)
     {
         if (blackBlock.get(row +","+ column) == "BLACK")
@@ -95,10 +123,12 @@ public class World
         }
         return false;
     }
+
     public int getNumBlack()
     {
         return blackBlock.size();
     }
+
     public static void writeFile(){
         try {
 

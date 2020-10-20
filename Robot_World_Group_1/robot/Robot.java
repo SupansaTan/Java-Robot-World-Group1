@@ -33,16 +33,37 @@ public class Robot extends Robot_World
         this.updatePoints();
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get position x all points
+    // 
+    /////////////////////////////////////////////////////
     public int[] getXpoints()
     {
         return xpoint;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get position y all points
+    // 
+    /////////////////////////////////////////////////////
     public int[] getYpoints()
     {
         return ypoint;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: update all points after robot is moved
+    // 
+    /////////////////////////////////////////////////////
     public void updatePoints()
     {
         if (direction == 0)
@@ -70,6 +91,13 @@ public class Robot extends Robot_World
         ypoint[2] = rightPosY;  
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for update position when head of robot is up
+    // 
+    /////////////////////////////////////////////////////
     public void headUp() 
     {
         headPosX = (800/world.getMaxRow()/2);
@@ -80,6 +108,13 @@ public class Robot extends Robot_World
         rightPosY = (800/world.getMaxColumn());
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset , Sikarin Kaewjutaniti
+    //
+    // Description: for update position when head of robot is down
+    // 
+    /////////////////////////////////////////////////////
     public void headDown() 
     {
         headPosX = (800/world.getMaxRow()/2);
@@ -90,6 +125,13 @@ public class Robot extends Robot_World
         rightPosY = 0;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset , Sikarin Kaewjutaniti
+    //
+    // Description: for update position when head of robot is left
+    // 
+    /////////////////////////////////////////////////////
     public void headLeft() 
     {
         headPosX = 0;
@@ -100,6 +142,13 @@ public class Robot extends Robot_World
         rightPosY = 0;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset , Sikarin Kaewjutaniti
+    //
+    // Description: for update position when head of robot is right
+    // 
+    /////////////////////////////////////////////////////
     public void headRight() 
     {
         headPosX = (800/world.getMaxRow());
@@ -110,6 +159,13 @@ public class Robot extends Robot_World
         rightPosY = (800/world.getMaxColumn());
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for update direction when robot is turn left
+    // 
+    /////////////////////////////////////////////////////
     public void turnLeft() 
     {
         if (direction == 0) 
@@ -122,6 +178,13 @@ public class Robot extends Robot_World
         }
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for update direction when robot is turn right
+    // 
+    /////////////////////////////////////////////////////
     public void turnRight() 
     {
         if (direction == 3) 
@@ -134,6 +197,13 @@ public class Robot extends Robot_World
         }
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset, Sikarin Kaewjutaniti
+    //
+    // Description: for update position when robot is moved
+    // 
+    /////////////////////////////////////////////////////
     public void move() 
     {
         {
@@ -150,7 +220,7 @@ public class Robot extends Robot_World
         {
             if(world.isBlackBlock( row, column+1 )== false)
             {
-            this.column += 1;
+                this.column += 1;
             }
         }
         else if (direction == 2 && !this.isAtBottomEdge()) 
@@ -168,31 +238,73 @@ public class Robot extends Robot_World
     }
 }
 
-    public int getRow() 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get row
+    // 
+    /////////////////////////////////////////////////////
+    public int getRow()
     {
         return row;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for get column
+    // 
+    /////////////////////////////////////////////////////
     public int getColumn() 
     {
         return column;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for check robot is at top edge
+    // 
+    /////////////////////////////////////////////////////
     public boolean isAtTopEdge() 
     {
         return row <= 0;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for check robot is at bottom edge
+    // 
+    /////////////////////////////////////////////////////
     public boolean isAtBottomEdge() 
     {
         return row >= world.getMaxColumn()-1;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for check robot is at left edge
+    // 
+    /////////////////////////////////////////////////////
     public boolean isAtLeftEdge() 
     {
         return column <= 0;
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: for check robot is at right edge
+    // 
+    /////////////////////////////////////////////////////
     public boolean isAtRightEdge() 
     {
         return column >= world.getMaxRow()-1;
