@@ -16,13 +16,14 @@ public class World
     {
         this.readFile("map.txt");
     }
+    
 
     public World(String fileName) // when want to use another file
     {
         this.readFile(fileName);
     }
 
-    public void display() 
+    public void display() //Sikarin display int value of maximum row cloumn and black block position for checking
     {
         System.out.println(rowMax);
         System.out.println(columnMax);
@@ -99,7 +100,7 @@ public class World
     {
         return blackBlock.size();
     }
-    public static void writeFile(){
+    public static void writeFile(){ //Sikarin write the current value of map and target also max row and column
         try {
 
             FileWriter myWriter = new FileWriter("Maps.txt");

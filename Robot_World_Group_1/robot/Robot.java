@@ -134,7 +134,7 @@ public class Robot extends Robot_World
         }
     }
 
-    public void move() 
+    public void move() // Sikarin changging value of current row and column of robot
     {
         {
         if (target.getRow()== row && target.getColumn() == column){
@@ -178,7 +178,7 @@ public class Robot extends Robot_World
         return column;
     }
 
-    public boolean isAtTopEdge() 
+    public boolean isAtTopEdge()
     {
         return row <= 0;
     }
