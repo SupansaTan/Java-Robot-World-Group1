@@ -6,6 +6,13 @@ import target.Target;
 
 public class InputProcessor extends Robot_World
 {
+/////////////////////////////////////////////////////
+//
+// Programmer: Thanakrit-Bank
+//
+// Description: This method will receive the input from key on the keyboard and then will process the robot move, turnLeft, turnRight method and if the key is 's' will save the file.
+// 
+/////////////////////////////////////////////////////
     public void control(int key)
     {
 
