@@ -1,8 +1,11 @@
 package world;
+
 import java.io.*;
 import java.util.*;
+import robotWorld.Robot_World;
+import flowchart.*;
 
-public class World
+public class World extends Robot_World
 {
     private static int rowMax;
     private static int columnMax;
@@ -149,4 +152,78 @@ public class World
         }
     }
 
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: get all command in flowchart
+    // 
+    /////////////////////////////////////////////////////
+    public void getFlow(Flowchart flow)
+    {
+        for (int i=0; i < flow.getSize(); i++)
+        {
+            if(!(flow.getSize() == 0))
+            {
+                String command = flow.getFlowchart();
+                
+                if (command.charAt(0) == '[')
+                {
+                    // if...else statement
+                    String[] statements = command.substring(1,command.length()-1).split(",");
+                    String condition = statements[0];
+                    String ifTrue = statements[1];
+                    String ifFalse = statements[2];
+                
+                    // do if...else statement
+                    if(this.executeCommand(condition))
+                    {
+                        this.executeCommand(ifTrue);
+                    }
+                    else
+                    {
+                        this.executeCommand(ifFalse);
+                    }
+                }
+                else
+                {
+                    this.executeCommand(command);
+                }
+            }
+        }
+    }
+    
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: execute the command from flowchart to control robot
+    // 
+    /////////////////////////////////////////////////////
+    public boolean executeCommand(String cmd)
+    {
+        if(cmd.equals("move()"))
+        {
+            robot.move();
+            robot.updatePoints();
+            return true;
+        }
+        else if(cmd.equals("turnLeft()"))
+        {
+            robot.turnLeft();
+            robot.updatePoints();
+            return true;
+        }
+        else if(cmd.equals("turnRight()"))
+        {
+            robot.turnRight();
+            robot.updatePoints();
+            return true;
+        }
+        else if(cmd.equals("isBlocked()"))
+        {
+            return robot.isBlocked();
+        }
+        return false;
+    }
 }

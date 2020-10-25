@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Flowchart 
 {
-    ArrayQueue elements;
+    private static ArrayQueue elements;
 
     public Flowchart()
     {

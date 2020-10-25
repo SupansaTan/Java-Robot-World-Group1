@@ -206,7 +206,6 @@ public class Robot extends Robot_World
     /////////////////////////////////////////////////////
     public void move() 
     {
-        {
         if (target.getRow()== row && target.getColumn() == column){
 
         }
@@ -236,7 +235,6 @@ public class Robot extends Robot_World
             }
         }
     }
-}
 
     /////////////////////////////////////////////////////
     //
@@ -310,4 +308,34 @@ public class Robot extends Robot_World
         return column >= world.getMaxRow()-1;
     }
     
+    /////////////////////////////////////////////////////
+    //
+    // Programmer: Supansa Tantulset
+    //
+    // Description: check font of the robot is can walk or not?
+    // 
+    /////////////////////////////////////////////////////
+    public boolean isBlocked()
+    {
+        if(direction == 0 && (column <= 0 || world.isBlackBlock(row, column-1)))
+        {
+            return true;
+        }
+        else if (direction == 1 && (column >= world.getMaxColumn()-1 || world.isBlackBlock(row+1, column)))
+        {
+            return true;
+        }
+        else if (direction == 2 && (row <= 0 || world.isBlackBlock(row, column+1)))
+        {
+            return true;
+        }
+        else if (direction == 3 && (row >= world.getMaxRow()-1 || world.isBlackBlock(row-1, column)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

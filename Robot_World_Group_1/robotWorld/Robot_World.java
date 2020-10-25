@@ -50,6 +50,9 @@ public class Robot_World
         flowchart.add("move()");
         flowchart.render();
 
+        // do all command in flowchart
+        world.getFlow(flowchart);
+
         // use grid in panel for divide blocks
         mainPanel = new JPanel();
         textPanel = new JPanel();
