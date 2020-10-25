@@ -4,20 +4,16 @@ import java.util.*;
 
 public class World
 {
-
     private static int rowMax;
     private static int columnMax;
     private Scanner reader; // read file
     private static HashMap<String, String> blackBlock = new HashMap<String, String>();
-    private int[] robotPos;
-    private int[] targetPos;
 
     public World() 
     {
         this.readFile("map.txt");
     }
     
-
     public World(String fileName) // when want to use another file
     {
         this.readFile(fileName);
@@ -130,7 +126,7 @@ public class World
         return blackBlock.size();
     }
     
-    public static void writeFile(){ //Sikarin write the current value of map and target also max row and column
+    public void writeFile(){ //Sikarin write the current value of map and target also max row and column
         try {
 
             FileWriter myWriter = new FileWriter("Maps.txt");

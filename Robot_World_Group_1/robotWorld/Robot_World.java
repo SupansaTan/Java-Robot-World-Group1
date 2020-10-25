@@ -8,6 +8,7 @@ import world.World;
 import robot.Robot;
 import target.Target;
 import inputProcessor.InputProcessor;
+import flowchart.Flowchart;
 
 public class Robot_World
 {
@@ -15,11 +16,11 @@ public class Robot_World
     public static Robot robot;
     private static Target target;
     private static InputProcessor inputProcessor;
+    private static Flowchart flowchart;
     private static JFrame frame;
     private static JPanel mainPanel;
     private static JPanel textPanel;
     private static JButton[] buttons;
-    private static JLabel Status;
 
     /////////////////////////////////////////////////////
     //
@@ -35,13 +36,19 @@ public class Robot_World
         frame.setSize(800,800);
         frame.setTitle("Robot World");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Status = new JLabel();
 
         // create object of class
         world = new World();
         robot = new Robot(1,1,1);
         target = new Target(9,7);
         inputProcessor = new InputProcessor();
+        flowchart = new Flowchart();
+
+        // add command in flowchart
+        flowchart.add("move()");
+        flowchart.ifStatement("isBlocked()", "turnLeft()", "turnRight()");
+        flowchart.add("move()");
+        flowchart.render();
 
         // use grid in panel for divide blocks
         mainPanel = new JPanel();
@@ -49,7 +56,6 @@ public class Robot_World
         mainPanel.setLayout(new GridLayout(world.getMaxRow(), world.getMaxColumn(),2,2));
         mainPanel.setBackground(Color.BLACK);
         frame.add(mainPanel);
-
 
         // use button instead of each block
         int amountOfBtn = world.getMaxRow() * world.getMaxColumn();
@@ -121,8 +127,6 @@ class DrawPolygon extends JComponent
 {
     int[] xpoint, ypoint;
     int npoint;
-    public static Robot robot = new Robot(1,1,1);
-    private static Target target = new Target(9,7);
 
     DrawPolygon(int[] x, int[] y, int n)
     {
